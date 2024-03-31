@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Prediction</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='prediction.css') }}">
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+   <header>
+      <nav>
+         <div class="logo"> <h1 class="">COVID-19 DATA Visualization and prediction</h1></div>
+        <div class="menu">
+        <a href="/">Home</a>
+        <a href="/overview">Overview</a>
+        <a href="/visualization">Visualization</a>
+        <a href="#" style="color:yellow">Prediction</a>
+        </div>
+      </nav>
+   
+  <form style="text-align: center;">
+   <h2 style="text-align: center; margin-bottom:100px;margin-top:50px;">Predit COVID-19 Confirmed Cases</h2>
+   <label style="margin-bottom:55px;" for="fname">Date</label><br>
+   <input style="margin-bottom:55px;height:40px;width:300px;" type="date" name=""id="" ><br>
+  <label style="margin-bottom:55px;" for="fname">Confirmed Cases</label><br>
+  <input style="margin-bottom:55px; height:40px;width: 300px;" type="text" id="fname" name="fname"><br>
+  <button type="submit" style="padding:5px; border-radius:5px;background-color:rgb(0, 0, 0, 0.2);color:honeydew">Predict Now</button>
+</form>
+  
+   </header>
+   
+   <footer id="footer" style="position:fixed;">
+      <span id="footerText"><strong>Copyright &copy; United technical college. All right Reserved.</strong></span>
+    </footer>  
+    
+</body>
+</html>

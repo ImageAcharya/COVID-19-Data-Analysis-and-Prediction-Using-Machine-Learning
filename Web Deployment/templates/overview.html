@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Overview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='overview.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+    <style>
+        .report{
+            border-radius: 5px;
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+        .report-table{
+            margin-top: 0px;
+            background-color: rgba(0, 0, 255, 0);
+        }
+        table{
+            overflow-y:scroll;
+            height:250px;
+            display:block;
+            
+        }
+        .tscroll{
+            border-radius: 5px;
+            padding:10px;
+            margin-bottom: 35px;
+            background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3));
+        }
+        .map{
+            padding-bottom: 70px;
+            width: 670px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="logo"> <h1 class="">COVID-19 DATA Visualization and prediction</h1></div>
+        <div class="menu">
+        <a href="/">Home</a>
+        <a href="#"  style="color:yellow">Overview</a>
+        <a href="/visualization">Visualization</a>
+        <a href="/prediction">Prediction</a>
+        </div>
+    </nav>
+<ul>
+    <li class="report" style="color: lawngreen;">Total cases<br/>{{ Total_Cases }}</li>
+    <li class="report" style="color: magenta;">Recovered cases<br/>{{ Total_Recovered }}</li>
+    <li class="report" style="color:rgb(53, 163, 253);">Death cases<br/>{{ Total_Deaths }}</li>
+    <li class="report" style="color: cyan;">Active cases<br/>{{ Total_Active_Cases }}</li>
+</ul>
+
+<ul>
+    <li class="report-table">
+        <div class="tscroll">
+            <h2 style="color:lawngreen;">Total Cases</h2>
+        <table border=1>
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+            </tr>
+        {% for country, cases in CcasesList %} 
+            <tr>
+                <td>{{ country }}</td>
+                <td>{{ cases }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+        
+        <div class="tscroll">
+            <h2 style="color:magenta;">Total Recovered</h2>
+            <table border="1">
+                <tr>
+                    <th>Country</th>
+                    <th>Total Recovered</th>
+                </tr>
+            {% for country, recovered in CrecoveredList %}
+                <tr>
+                    <td>{{ country }}</td>
+                    <td>{{ recovered }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+        
+    </li>
+    <li class="report-table map">
+        {{ worldMap|safe }}
+    </li>
+    <li class="report-table">
+        <div class="tscroll">
+            <h2 style="color:rgb(53, 163, 253);">Total Deaths</h2>
+            <table border="1">
+                <tr>
+                    <th>Country</th>
+                    <th>Total Deaths</th>
+                </tr>
+            {% for country, deaths in CdeathsList %}
+                <tr>
+                    <td>{{ country }}</td>
+                    <td>{{ deaths }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <div class="tscroll">
+            <h2 style="color:cyan;">Total Active Cases</h2>
+            <table border="1">
+                <tr>
+                    <th>Country</th>
+                    <th>Total Active Cases</th>
+                </tr>
+            {% for country, active in CactiveList %}
+                <tr>
+                    <td>{{ country }}</td>
+                    <td>{{ active }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        
+    </li>
+</ul>
+
+</header>
+
+</body>
+<footer id="footer" style="background-color: rgba(0, 0, 0, 0.705);">
+    <span id="footerText"><strong>Copyright &copy; United technical college. All right Reserved.</strong></span>
+  </footer>
+  
+</html>
